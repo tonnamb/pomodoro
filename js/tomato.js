@@ -2,10 +2,11 @@ var tomato = (function() {
 
     var breakLength = 1; // minutes
     var sessionLength = 1; // minutes
-    var timer = 60; // seconds
+    var timer = sessionLength * 60; // seconds
     var intervalID;
     var sessionState = true; // true = session, false = break
-    var stateText = "Session"; 
+    var stateText = "Session";
+    var runningState = false; // true = timer running 
 
     // cache DOM
     var $break = $('#break');
@@ -44,8 +45,12 @@ var tomato = (function() {
     }
 
     function decrementBreak() {
-        breakLength -= 1;
-        _render();
+        if (breakLength === 1) {
+            throw 'Error: Minimum break length is 1 minute.';
+        } else {
+            breakLength -= 1;
+            _render();
+        }
     }
 
     function incrementSession() {
@@ -54,35 +59,45 @@ var tomato = (function() {
     }
 
     function decrementSession() {
-        sessionLength -= 1;
-        _render();
+        if (sessionLength === 1) {
+            throw 'Error: Minimum session length is 1 minute.';
+        } else {
+            sessionLength -= 1;
+            _render();
+        }
     }
 
     function startTimer() {
-        intervalID = window.setInterval(decrementTimer, 1000);
+        if (runningState) {
+            throw 'Error: Timer is already running!';
+        } else {
+            runningState = true;
+            intervalID = window.setInterval(_decrementTimer, 1000);
+        }
     }
 
-    function decrementTimer() {
+    function _decrementTimer() {
         timer -= 1;
         _render();
         if (timer === 0) {
             stopTimer();
-            sessionState ? startBreak() : finishBreak();
+            sessionState ? _startBreak() : _finishBreak();
         }
     }
 
     function stopTimer() {
         window.clearInterval(intervalID);
+        runningState = false;
     }
 
-    function startBreak() {
+    function _startBreak() {
         sessionState = false;
         stateText = "Break";
         timer = breakLength * 60;
         _render()
     }
 
-    function finishBreak() {
+    function _finishBreak() {
         sessionState = true;
         stateText = "Session";
         timer = sessionLength * 60;
