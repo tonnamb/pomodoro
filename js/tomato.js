@@ -81,7 +81,7 @@ var tomato = (function() {
         _render();
         if (timer === 0) {
             stopTimer();
-            sessionState ? _startBreak() : _finishBreak();
+            sessionState ? _setupBreak() : _finishBreak();
         }
     }
 
@@ -90,11 +90,12 @@ var tomato = (function() {
         runningState = false;
     }
 
-    function _startBreak() {
+    function _setupBreak() {
         sessionState = false;
         stateText = "Break";
         timer = breakLength * 60;
         _render()
+        alert('Work session completed, time for a break!')
     }
 
     function _finishBreak() {
@@ -102,6 +103,7 @@ var tomato = (function() {
         stateText = "Session";
         timer = sessionLength * 60;
         _render()
+        alert('Break-time is over, get back to work!')
     }
 
 })();
