@@ -1,9 +1,14 @@
 body {
     font-family: 'Baloo Chettan', sans-serif;
+    text-align: center
 }
 
 h3 {
     margin-top: 15px;
+}
+
+p {
+    margin-bottom: 0;
 }
 
 .plus-minus {
@@ -11,11 +16,19 @@ h3 {
     border: 0;
 }
 
-#start {
-    width: 100%;    
-}
-
 button {
     font-size: 16px;
     font-weight: 400;
+}
+
+footer {
+     margin-top: 15px;
+}
+
+a {
+    color: #d80000;
+}
+
+a:hover {
+    color: #888;
 }
