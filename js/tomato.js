@@ -106,4 +106,13 @@ var tomato = (function() {
         alert('Break-time is over, get back to work!')
     }
 
+    return {
+        incrementBreak: incrementBreak,
+        decrementBreak: decrementBreak,
+        incrementSession: incrementSession,
+        decrementSession: decrementSession,
+        startTimer: startTimer,
+        stopTimer: stopTimer
+    }
+
 })();

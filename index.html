@@ -15,12 +15,13 @@
 
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan" rel="stylesheet">
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/style.css">
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -32,16 +33,11 @@
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
-    <div class="row">
-      <div class="two-thirds column" style="margin-top: 10%">
-        <h4>Pomodoro Timer</h4>
-        <h4>Revealing Module Pattern</h4>
-        <p>Break length: <button id="break-minus">-</button> <span id="break">5</span> <button id="break-plus">+</button></p>
-        <p>Session length: <button id="session-minus">-</button> <span id="session">25</span> <button id="session-plus">+</button></p>
-        <p><span id="state">Session</span>: <span id="timer">25:00</span></p>
-        <button id="start">Start</button>
-      </div>
-    </div>
+    <h3>Pomodoro Timer</h3>
+    <p>Break length =  <button class="plus-minus" id="break-minus">-</button> <span id="break">5</span> <button class="plus-minus" id="break-plus">+</button></p>
+    <p>Session length =  <button class="plus-minus" id="session-minus">-</button> <span id="session">25</span> <button class="plus-minus" id="session-plus">+</button></p>
+    <h4><span id="state">Session</span> timer = <span id="timer">25:00</span></h4>
+    <button id="start">Start</button>
   </div>
 
 <!-- Load JavaScripts

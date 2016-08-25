@@ -1,0 +1,21 @@
+body {
+    font-family: 'Baloo Chettan', sans-serif;
+}
+
+h3 {
+    margin-top: 15px;
+}
+
+.plus-minus {
+    padding: 0 10px;
+    border: 0;
+}
+
+#start {
+    width: 100%;    
+}
+
+button {
+    font-size: 16px;
+    font-weight: 400;
+}
